@@ -1,3 +1,13 @@
-img {
+@import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+
+.flag {
     width: 100px;
+}
+
+.img-card {
+    width: 100%;
+}
+
+ul {
+    list-style-type: none;
 }
