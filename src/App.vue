@@ -47,6 +47,7 @@ export default {
 .content {
   width: 100%;
   height: 100vh;
+  padding-top: 5rem;
 }
 
 header {
@@ -62,5 +63,7 @@ header {
 
 main {
   background-color: #4f5b62;
+  height: calc(100vh - 80px);
+  overflow: scroll;
 }
 </style>

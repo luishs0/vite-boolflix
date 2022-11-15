@@ -184,9 +184,13 @@ li {
 
 .ms_card {
     width: 100%;
-    height: 100%;
+    height: 30vw;
     margin-bottom: 1rem;
     cursor: ponter;
+}
+
+.ms_card img {
+    object-fit: cover;
 }
 
 .img {
@@ -197,6 +201,7 @@ li {
     display: none;
     height: 100%;
     width: 100%;
+    padding: .3rem;
     background-color: black;
     object-fit: cover;
 }
@@ -227,21 +232,31 @@ li {
     height: 100%;
 }
 
+@media screen and (max-width: 575px) {
+    .ms_card {
+        width: 100%;
+        height: 120vw;
+    }
+}
+
 @media screen and (min-width: 576px) {
     .ms_card {
         width: calc(100% / 2);
+        height: 60vw;
     }
 }
 
 @media screen and (min-width: 768px) {
     .ms_card {
         width: calc(100% / 3);
+        height: 40vw;
     }
 }
 
 @media screen and (min-width: 992px) {
     .ms_card {
         width: calc(100% / 4);
+        max-height: 27vw;
     }
 }
 </style>
