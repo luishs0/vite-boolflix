@@ -17,11 +17,13 @@ export default {
 
 
 <template>
-    <div class="container d-flex flex-wrap">
+    <div class="container">
 
-        <ul class="films">
-            <h3 v-if="this.store.titleIndex === true">Movies</h3>
-            <li class="film mb-5" v-for="(film, index) in this.store.movies">
+        <h3 class="pt-4 pb-4" v-if="this.store.titleIndex === true">Movies</h3>
+
+        <ul class="films d-flex flex-wrap justify-content-between align-items-stretch row">
+
+            <li class="film ms_card" v-for="(film, index) in this.store.movies">
                 <div class="img"> <img class="img-card"
                         :src="getImagePath(`https://image.tmdb.org/t/p/w342${film.poster_path}`)" alt="">
                 </div>
@@ -89,11 +91,14 @@ export default {
                 </div>
             </li>
         </ul>
-        <ul class="series">
-            <h3 v-if="this.store.titleIndex === true">Series</h3>
-            <li class="serie mb-5" v-for="(serie, index) in this.store.series">
-                <div> <img class="img-card" :src="getImagePath(`https://image.tmdb.org/t/p/w342${serie.poster_path}`)"
-                        alt=""> </div>
+
+        <h3 class="pt-4 pb-4" v-if="this.store.titleIndex === true">Series</h3>
+        <ul class="series d-flex flex-wrap justify-content-between align-items-stretch row">
+
+            <li class="serie ms_card" v-for="(serie, index) in this.store.series">
+                <div class="img"> <img class="img-card"
+                        :src="getImagePath(`https://image.tmdb.org/t/p/w342${serie.poster_path}`)" alt="">
+                </div>
                 <div class="info">
                     <p>Tittolo: {{ serie.name }} </p>
                     <p>Tittolo originale: {{ serie.original_name }} </p>
@@ -164,8 +169,79 @@ export default {
 
 
 <style scoped>
-.films,
-.series {
-    width: 50%;
+ul {
+    color: white;
+    padding: 0;
+}
+
+h3 {
+    color: white;
+}
+
+li {
+    height: 100%;
+}
+
+.ms_card {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 1rem;
+    cursor: ponter;
+}
+
+.img {
+    display: block;
+}
+
+.info {
+    display: none;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    object-fit: cover;
+}
+
+.ms_card:hover .img {
+    display: none;
+}
+
+.ms_card:hover .info {
+    display: block;
+}
+
+
+
+.ms_card .img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1000px;
+}
+
+.ms_card .img img {
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (min-width: 576px) {
+    .ms_card {
+        width: calc(100% / 2);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .ms_card {
+        width: calc(100% / 3);
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .ms_card {
+        width: calc(100% / 4);
+    }
 }
 </style>
