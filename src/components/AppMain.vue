@@ -4,12 +4,16 @@ import { store } from "../store";
 export default {
     data() {
         return {
-            store
+            store,
+            flags: ['de', 'en', 'es', 'fr', 'it', 'pt'],
         }
     },
     methods: {
         getImagePath: function (imgPath) {
             return new URL(imgPath, import.meta.utl).href
+        },
+        getImgURL(imgName) {
+            return new URL(`../assets/${imgName}.png`, import.meta.url).href
         }
     }
 }
@@ -31,16 +35,8 @@ export default {
                     <p>Tittolo: {{ film.title }}</p>
                     <p>Tittolo originale: {{ film.original_title }} </p>
                     <p>Lingua:
-                        <span v-if="film.original_language === 'es'"> <img class="flag" src="../assets/spainflag.png"
-                                alt=""> </span>
-                        <span v-else-if="film.original_language === 'en'"><img class="flag" src="../assets/ukflag.webp"
-                                alt=""></span>
-                        <span v-else-if="film.original_language === 'it'"><img class="flag"
-                                src="../assets/italyflag.png" alt=""></span>
-                        <span v-else-if="film.original_language === 'fr'"><img class="flag"
-                                src="../assets/franceflag.png" alt=""></span>
-                        <span v-else-if="film.original_language === 'de'"><img class="flag"
-                                src="../assets/germanyflag.png" alt=""></span>
+                        <img v-if="flags.includes(film.original_language)" :src="getImgURL(`${film.original_language}`)"
+                            alt="">
                         <span v-else> {{ film.original_language }} </span>
                     </p>
                     <div class="vote">
@@ -66,17 +62,8 @@ export default {
                     <p>Tittolo: {{ serie.name }} </p>
                     <p>Tittolo originale: {{ serie.original_name }} </p>
                     <p>Lingua:
-                        <span v-if="serie.original_language === 'es'"> <img class="flag" src="../assets/spainflag.png"
-                                alt="">
-                        </span>
-                        <span v-else-if="serie.original_language === 'en'"><img class="flag" src="../assets/ukflag.webp"
-                                alt=""></span>
-                        <span v-else-if="serie.original_language === 'it'"><img class="flag"
-                                src="../assets/italyflag.png" alt=""></span>
-                        <span v-else-if="serie.original_language === 'fr'"><img class="flag"
-                                src="../assets/franceflag.png" alt=""></span>
-                        <span v-else-if="serie.original_language === 'de'"><img class="flag"
-                                src="../assets/germanyflag.png" alt=""></span>
+                        <img v-if="flags.includes(serie.original_language)"
+                            :src="getImgURL(`${serie.original_language}`)" alt="">
                         <span v-else> {{ serie.original_language }} </span>
                     </p>
                     <div class="vote">
@@ -108,11 +95,15 @@ li {
     height: 100%;
 }
 
+.info p img {
+    width: 100px;
+}
+
 .ms_card {
     width: 100%;
     height: 30vw;
     margin-bottom: 1rem;
-    cursor: ponter;
+    cursor: pointer;
 }
 
 .ms_card img {
@@ -128,7 +119,7 @@ li {
     height: 100%;
     width: 100%;
     padding: .3rem;
-    background-color: black;
+    background-color: #000019;
     object-fit: cover;
 }
 
