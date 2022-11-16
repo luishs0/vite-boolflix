@@ -44,47 +44,10 @@ export default {
                         <span v-else> {{ film.original_language }} </span>
                     </p>
                     <div class="vote">
-                        <p v-if="Math.round((5 * film.vote_average) / 10) === 0">
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </p>
-                        <p v-else-if="Math.round((5 * film.vote_average) / 10) === 1">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </p>
-                        <p v-else-if="Math.round((5 * film.vote_average) / 10) === 2">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </p>
-                        <p v-else-if="Math.round((5 * film.vote_average) / 10) === 3">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </p>
-                        <p v-else-if="Math.round((5 * film.vote_average) / 10) === 4">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </p>
-                        <p v-else-if="Math.round((5 * film.vote_average) / 10) === 5">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                        <p> <i v-for="n in 5" :key="n"
+                                :class="n <= (Math.round(film.vote_average / 2)) ? 'fa-solid' : 'fa-regular'"
+                                class="fa-star">
+                            </i>
                         </p>
                     </div>
 
@@ -117,47 +80,10 @@ export default {
                         <span v-else> {{ serie.original_language }} </span>
                     </p>
                     <div class="vote">
-                        <p v-if="(Math.round((5 * serie.vote_average) / 10)) === 0">
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </p>
-                        <p v-else-if="Math.round((5 * serie.vote_average) / 10) === 1">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </p>
-                        <p v-else-if="Math.round((5 * serie.vote_average) / 10) === 2">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </p>
-                        <p v-else-if="Math.round((5 * serie.vote_average) / 10) === 3">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </p>
-                        <p v-else-if="Math.round((5 * serie.vote_average) / 10) === 4">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </p>
-                        <p v-else-if="Math.round((5 * serie.vote_average) / 10) === 5">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                        <p> <i v-for="n in 5" :key="n"
+                                :class="n <= (Math.round(serie.vote_average / 2)) ? 'fa-solid' : 'fa-regular'"
+                                class="fa-star">
+                            </i>
                         </p>
                     </div>
                 </div>
