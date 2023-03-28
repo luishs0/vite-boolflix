@@ -1,7 +1,5 @@
-# Vue 3 + Vite
+<h1> NETFLIX con API </h1>
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+<p> Este proyecto se trata de una aplicación web que imita a Netflix, completamente responsive, en la que puedes buscar el título de la película que quieras y, al darle a buscar, la aplicación hará una llamada API que te devolverá una serie de películas que contengan la palabra que has buscado. </p>
 
-## Recommended IDE Setup
-
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+<p> La aplicación está hecha con Vue y Vite. </p>
